@@ -95,7 +95,7 @@ func Analyze(options *common.Options, logs *gonx.Entry) (bool, map[string]string
 			for _, cve := range cves.GetArray("templates") {
 				log["category"] = strings.ToTitle(string(cve.GetStringBytes("id")))
 
-				for _, r := range cve.GetArray("requests") {
+				for _, r := range cve.GetArray("http") {
 					switch {
 					case len(r.GetArray("path")) > 0:
 						kind = "path"
